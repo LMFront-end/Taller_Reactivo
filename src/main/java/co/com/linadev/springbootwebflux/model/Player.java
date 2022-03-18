@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Document(value = "players")
 public class Player {
-
     @Id
     private String id;
     private Long playerId;
