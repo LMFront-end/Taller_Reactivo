@@ -34,7 +34,7 @@ public class PlayerService {
 
     // filtrar por nombre
     public Flux<Player> findAllByPlayerNameContains(String name){
-        return playerRepository.findAllByPlayerNameContains(name);
+        return playerRepository.findAllByPlayerNameContainingIgnoreCase(name);
     }
 
     // filtrar mayores a cualquier edad
