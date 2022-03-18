@@ -12,6 +12,7 @@ import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -54,31 +55,12 @@ class PlayerServiceTest {
 
     @Test
     void findAllByPlayerNameContains() {
+        String testName = "Rodriguez";
         List<Player> list = CsvUtilFile.getPlayers();
+        List<Player> filtrado = list.stream().filter(x -> x.getPlayerName().toLowerCase().contains(testName.toLowerCase()))
+                .collect(Collectors.toList());
+        Mockito.when(repository.findAllByPlayerNameContainingIgnoreCase(testName)).thenReturn(Flux.fromIterable(filtrado));
+        StepVerifier.create(playerService.findAllByPlayerNameContains(testName)).expectNextCount(6).verifyComplete();
     }
-
-    @Test
-    void findAllByPlayerAgeGreaterThan() {
-        List<Player> list = CsvUtilFile.getPlayers();
-    }
-
-    @Test
-    void findAllByPlayerAgeLessThan() {
-        List<Player> list = CsvUtilFile.getPlayers();
-    }
-
-    @Test
-    void findAllByPlayerAge() {
-        List<Player> list = CsvUtilFile.getPlayers();
-    }
-
-    @Test
-    void findAllByPlayerCountryContainingIgnoreCase() {
-        List<Player> list = CsvUtilFile.getPlayers();
-    }
-
-    @Test
-    void findAllByPlayerCountryContainingIgnoreCaseOrderByPlayerStatOne() {
-        List<Player> list = CsvUtilFile.getPlayers();
-    }
+    
 }
