@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.List;
@@ -35,6 +36,8 @@ class PlayerServiceTest {
 
     @Test
     void deleteClearData() {
+        Mockito.when(repository.deleteAll()).thenReturn(Mono.empty());
+        StepVerifier.create(playerService.deleteClearData()).expectNextCount(0).verifyComplete();
     }
 
     @Test
