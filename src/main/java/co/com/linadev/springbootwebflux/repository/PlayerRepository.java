@@ -18,4 +18,5 @@ public interface PlayerRepository extends ReactiveMongoRepository<Player, String
     Flux<Player> findAllByPlayerAgeGreaterThan(Integer age);
     Flux<Player> findAllByPlayerAgeLessThan(Integer age);
     Flux<Player> findAllByPlayerAge(Integer age);
+    Flux<Player> findAllByPlayerCountryContainingIgnoreCase(String country);
 }

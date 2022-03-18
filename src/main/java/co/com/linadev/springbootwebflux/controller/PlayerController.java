@@ -49,5 +49,10 @@ public class PlayerController {
         return playerService.findAllByPlayerAge(age);
     }
 
+    @GetMapping("/country/{country}")
+    public Flux<Player> findAllByPlayerCountryContainingIgnoreCase(@PathVariable String country){
+        return playerService.findAllByPlayerCountryContainingIgnoreCase(country);
+    }
+
 
 }

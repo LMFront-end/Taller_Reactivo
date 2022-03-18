@@ -53,10 +53,14 @@ public class PlayerService {
     }
 
     // filtrar por nacionalidad
+    public Flux<Player> findAllByPlayerCountryContainingIgnoreCase(String country){
+        return playerRepository.findAllByPlayerCountryContainingIgnoreCase(country);
+    }
 
     // ranking de pais
 
-    // ordenar por nombre
+
+    
 
 
 }
