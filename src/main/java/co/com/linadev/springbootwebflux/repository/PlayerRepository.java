@@ -15,4 +15,7 @@ public interface PlayerRepository extends ReactiveMongoRepository<Player, String
     Mono<Void> deleteAll();
     Flux<Player> findAllByPlayerClubOrderByPlayerName(String club);
     Flux<Player> findAllByPlayerNameContainingIgnoreCase(String name);
+    Flux<Player> findAllByPlayerAgeGreaterThan(Integer age);
+    Flux<Player> findAllByPlayerAgeLessThan(Integer age);
+    Flux<Player> findAllByPlayerAge(Integer age);
 }

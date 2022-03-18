@@ -37,8 +37,20 @@ public class PlayerService {
         return playerRepository.findAllByPlayerNameContainingIgnoreCase(name);
     }
 
-    // filtrar mayores a cualquier edad
+    // filtrar (edad) mayores a
+    public Flux<Player> findAllByPlayerAgeGreaterThan(Integer age){
+        return playerRepository.findAllByPlayerAgeGreaterThan(age);
+    }
 
+    // filtrar (edad) menores a
+    public Flux<Player> findAllByPlayerAgeLessThan(Integer age){
+        return playerRepository.findAllByPlayerAgeLessThan(age);
+    }
+
+    // filtrar (edad) igual a
+    public Flux<Player> findAllByPlayerAge(Integer age){
+        return playerRepository.findAllByPlayerAge(age);
+    }
 
     // filtrar por nacionalidad
 

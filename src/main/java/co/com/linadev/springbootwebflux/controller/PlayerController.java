@@ -34,5 +34,20 @@ public class PlayerController {
         return playerService.findAllByPlayerNameContains(name);
     }
 
+    @GetMapping("/ageGreater/{age}")
+    public Flux<Player> findAllByPlayerAgeGreaterThan(@PathVariable Integer age){
+        return playerService.findAllByPlayerAgeGreaterThan(age);
+    }
+
+    @GetMapping("/ageLess/{age}")
+    public Flux<Player> findAllByPlayerAgeLessThan(@PathVariable Integer age){
+        return playerService.findAllByPlayerAgeLessThan(age);
+    }
+
+    @GetMapping("/age/{age}")
+    public Flux<Player> findAllByPlayerAge(@PathVariable Integer age){
+        return playerService.findAllByPlayerAge(age);
+    }
+
 
 }
