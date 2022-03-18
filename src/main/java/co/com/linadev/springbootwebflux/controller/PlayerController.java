@@ -29,5 +29,10 @@ public class PlayerController {
         return playerService.findAllByPlayerClub(club);
     }
 
+    @GetMapping("/name/{name}")
+    public Flux<Player> findAllByPlayerNameStartingWith(@PathVariable String name){
+        return playerService.findAllByPlayerNameContains(name);
+    }
+
 
 }

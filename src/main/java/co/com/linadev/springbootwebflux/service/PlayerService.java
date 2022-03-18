@@ -32,7 +32,13 @@ public class PlayerService {
         return playerRepository.findAllByPlayerClubOrderByPlayerName(club);
     }
 
+    // filtrar por nombre
+    public Flux<Player> findAllByPlayerNameContains(String name){
+        return playerRepository.findAllByPlayerNameContains(name);
+    }
+
     // filtrar mayores a cualquier edad
+
 
     // filtrar por nacionalidad
 
