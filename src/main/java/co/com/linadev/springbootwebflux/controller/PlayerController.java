@@ -54,5 +54,10 @@ public class PlayerController {
         return playerService.findAllByPlayerCountryContainingIgnoreCase(country);
     }
 
+    @GetMapping("/countryStatOne/{country}")
+    public Flux<Player> findAllByPlayerCountryContainingIgnoreCaseOrderByPlayerStatOne(@PathVariable String country){
+        return playerService.findAllByPlayerCountryContainingIgnoreCaseOrderByPlayerStatOne(country);
+    }
+
 
 }

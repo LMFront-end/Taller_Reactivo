@@ -58,9 +58,11 @@ public class PlayerService {
     }
 
     // ranking de pais
+    public Flux<Player> findAllByPlayerCountryContainingIgnoreCaseOrderByPlayerStatOne(String country){
+        return playerRepository.findAllByPlayerCountryContainingIgnoreCaseOrderByPlayerStatOne(country);
+    }
 
 
-    
 
 
 }

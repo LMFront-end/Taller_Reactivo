@@ -18,8 +18,8 @@ public class Player {
     private Integer playerAge;
     private String playerPhoto;
     private String playerCountry;
-    private Integer playerSteOne;
-    private Integer playerStepTwo;
+    private Integer playerStatOne;
+    private Integer playerStatTwo;
     private String playerClub;
 
 }
