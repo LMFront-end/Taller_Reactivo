@@ -62,5 +62,5 @@ class PlayerServiceTest {
         Mockito.when(repository.findAllByPlayerNameContainingIgnoreCase(testName)).thenReturn(Flux.fromIterable(filtrado));
         StepVerifier.create(playerService.findAllByPlayerNameContains(testName)).expectNextCount(6).verifyComplete();
     }
-    
+
 }
