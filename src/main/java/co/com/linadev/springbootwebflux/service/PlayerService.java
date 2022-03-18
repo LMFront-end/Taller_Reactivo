@@ -26,4 +26,19 @@ public class PlayerService {
     public Mono<Void> deleteClearData(){
         return playerRepository.deleteAll();
     }
+
+    // filtrar por club
+    public Flux<Player> findAllByPlayerClub(String club){
+        return playerRepository.findAllByPlayerClubOrderByPlayerName(club);
+    }
+
+    // filtrar mayores a cualquier edad
+
+    // filtrar por nacionalidad
+
+    // ranking de pais
+
+    // ordenar por nombre
+
+
 }

@@ -23,4 +23,11 @@ public class PlayerController {
     public Mono<Void> deleteAll(){
         return playerService.deleteClearData();
     }
+
+    @GetMapping("/club/{club}")
+    public Flux<Player> findAllByPlayerClub(@PathVariable String club){
+        return playerService.findAllByPlayerClub(club);
+    }
+
+
 }
