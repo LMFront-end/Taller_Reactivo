@@ -3,18 +3,19 @@ package co.com.linadev.springbootwebflux.service;
 import co.com.linadev.springbootwebflux.model.Player;
 import co.com.linadev.springbootwebflux.repository.PlayerRepository;
 import co.com.linadev.springbootwebflux.utils.CsvUtilFile;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class PlayerService {
 
-    @Autowired
-    PlayerRepository playerRepository;
+
+    private final PlayerRepository playerRepository;
 
     // fill data
     public Flux<Player> fillData(){
@@ -59,7 +60,7 @@ public class PlayerService {
 
     // ranking de pais
     public Flux<Player> findAllByPlayerCountryContainingIgnoreCaseOrderByPlayerStatOne(String country){
-        return playerRepository.findAllByPlayerCountryContainingIgnoreCaseOrderByPlayerStatOne(country);
+        return playerRepository.findAllByPlayerCountryContainingIgnoreCaseOrderByPlayerStatOneDesc(country);
     }
 
 

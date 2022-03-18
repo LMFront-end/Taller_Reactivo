@@ -2,17 +2,19 @@ package co.com.linadev.springbootwebflux.controller;
 
 import co.com.linadev.springbootwebflux.model.Player;
 import co.com.linadev.springbootwebflux.service.PlayerService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("api/player")
 public class PlayerController {
 
-    @Autowired
-    PlayerService playerService;
+
+    private final PlayerService playerService;
 
     @PostMapping("/fillData")
     public Flux<Player> fillData(){
